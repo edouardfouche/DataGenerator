@@ -1,34 +1,10 @@
 name := "DataGenerator"
 organization:= "io.github.edouardfouche"
 
-version := "0.1.0-SNAPSHOT"
+version := "0.1.0"
+
 scalaVersion := "2.12.8"
-
-useGpg := true // not working with old sbt
-pgpReadOnly := false
-
-scmInfo := Some(ScmInfo(url("https://github.com/edouardfouche/MCDE"), "scm:git@github.com:edouardfouche/MCDE.git"))
-developers := List(
-  Developer(
-    id    = "edouardfouche",
-    name  = "Edouard Fouché",
-    email = "edouard.fouche@kit.edu",
-    url   = url("https://github.com/edouardfouche")
-  )
-)
-
-description := "A bunch of little data generators to simulate multivariate dependencies"
-licenses := Seq("AGPLv3" -> url("https://www.gnu.org/licenses/agpl-3.0.en.html")) 
-homepage := Some(url("https://github.com/edouardfouche/DataGenerator")) 
-publishMavenStyle := true
-pomIncludeRepository := { _ => false }
-publishArtifact in Test := false
-
-publishTo := {
-  val nexus = "https://oss.sonatype.org/"
-  if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
-  else Some("releases" at nexus + "service/local/staging/deploy/maven2")
-}
+crossScalaVersions := Seq("2.11.8", "2.12.8") // prefix with "+" to perform for both .e.g, "+ compile"
 
 libraryDependencies ++= Seq(
   // Last stable release
@@ -51,3 +27,45 @@ resolvers += "Sonatype Releases" at "https://oss.sonatype.org/content/repositori
 fork in run := true
 
 assemblyJarName in assembly := s"${name.value}-${version.value}.jar"
+
+////// Sonatype
+
+useGpg := true
+pgpReadOnly := false
+
+ThisBuild / organization := "io.github.edouardfouche.DataGenerator"
+ThisBuild / organizationName := "edouardfouche"
+ThisBuild / organizationHomepage := Some(url("https://github.com/edouardfouche"))
+
+ThisBuild / scmInfo := Some(
+  ScmInfo(
+    url("https://github.com/edouardfouche/MCDE"),
+    "scm:git@github.com:edouardfouche/MCDE.git"
+  )
+)
+ThisBuild / developers := List(
+  Developer(
+    id    = "edouardfouche",
+    name  = "Edouard Fouché",
+    email = "edouard.fouche@kit.edu",
+    url   = url("https://github.com/edouardfouche")
+  )
+)
+
+ThisBuild / description := "A bunch of little data generators to simulate multivariate dependencies."
+ThisBuild / licenses := List("AGPLv3" -> url("https://www.gnu.org/licenses/agpl-3.0.en.html"))
+ThisBuild / homepage := Some(url("https://github.com/edouardfouche/DataGenerator"))
+
+// Remove all additional repository other than Maven Central from POM
+ThisBuild / pomIncludeRepository := { _ => false }
+ThisBuild / publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
+  else Some("releases" at nexus + "service/local/staging/deploy/maven2")
+}
+ThisBuild / publishMavenStyle := true
+
+publishConfiguration := publishConfiguration.value.withOverwrite(true)
+publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true)
+
+////////////////
