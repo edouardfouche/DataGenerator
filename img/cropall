@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for i in *png
+  do convert "$i" -gravity center -crop 288x288+0+0 "$i"
+done
+
+for i in *s.png
+  do convert -resize 100x100 "$i" "$i"
+done
