@@ -27,6 +27,12 @@ import com.typesafe.scalalogging.LazyLogging
 // java -jar target/scala-2.12/DataGenerator.jar -g l -n 1000 -d 2 -disc 0 -noise 0.1 -ntype gaussian -a 'plot' --verbose
 // java -jar target/scala-2.12/DataGenerator.jar -g l -n 1000 -d 2 -disc 5 -noise 0.1 -ntype gaussian -a 'plot' --verbose
 object Main extends LazyLogging {
+
+  import org.apache.log4j.PropertyConfigurator
+
+  val log4jConfPath = "src/main/resources/log4j.properties"
+  PropertyConfigurator.configure(log4jConfPath)
+
   def main(args: Array[String]): Unit = {
     val vindex = (args indexWhere (_ == "--verbose")) + 1
     val verbose = if(vindex == 0) false else true

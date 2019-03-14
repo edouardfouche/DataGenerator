@@ -8,6 +8,16 @@ A bunch of little data generators to simulate multivariate dependencies, written
 
 ## Quick Start
 
+### Import it
+
+The data generator is now available on the central repository (scala 2.11 and 2.12).
+
+You can add it as a dependency in your own project, for example, via sbt:
+
+```
+libraryDependencies += "io.github.edouardfouche" %% "datagenerator" % "0.1.0"
+```
+
 ### Build it and run it
 
 **Requirements** : ([Oracle JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or [OpenJDK 8](http://openjdk.java.net/install/)) and [sbt](https://www.scala-sbt.org/1.0/docs/Setup.html)
@@ -74,20 +84,20 @@ Examples
 Plot all two and three dimensional dependencies with default configuration (can be useful to check each dependency) 
 
 ```
-java -jar target/scala-2.12/DataGenerator.jar -d 2 -a 'plot' --verbose
-java -jar target/scala-2.12/DataGenerator.jar -d 3 -a 'plot' --verbose
+java -jar target/scala-2.12/DataGenerator-0.1.0.jar -d 2 -a 'plot' --verbose
+java -jar target/scala-2.12/DataGenerator-0.1.0.jar -d 3 -a 'plot' --verbose
 ```
 
 Write and plot a noisy sphere (3 dimensions) at the indicated location.
 
 ```
-java -jar target/scala-2.12/DataGenerator.jar -g hypersphere -n 2000 -d 3 -noise 0.1 -a both -p /home/<user>/<whereyouwant> 
+java -jar target/scala-2.12/DataGenerator-0.1.0.jar -g hypersphere -n 2000 -d 3 -noise 0.1 -a both -p /home/<user>/<whereyouwant>
 ```
 
 You can also use the corresponding short name. 
 
 ```
-java -jar target/scala-2.12/DataGenerator.jar -g hs -d 3 -noise 0.1 -a both -p /home/<user>/<whereyouwant> 
+java -jar target/scala-2.12/DataGenerator-0.1.0.jar -g hs -d 3 -noise 0.1 -a both -p /home/<user>/<whereyouwant>
 ```
 
 Generators

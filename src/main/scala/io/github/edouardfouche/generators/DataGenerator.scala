@@ -127,6 +127,8 @@ trait DataGenerator {
       val chart = new AWTChart(Quality.Advanced, "offscreen")
       chart.getScene.add(scatter3d)
       ChartLauncher.screenshot(chart, fullpath)
+      chart.clear()
+      chart.dispose()
     } else {
       throw new Error(s"Plotting is not supported with more than 3 dimensions. (${this.id})")
     }

@@ -6,3 +6,7 @@ scala:
 script:
   - sbt compile
   - sbt assembly
+  - java -jar target/scala-2.12/DataGenerator-0.1.0.jar -d 2 -a 'plot' --verbose
+  - java -jar target/scala-2.12/DataGenerator-0.1.0.jar -d 3 -a 'plot' --verbose
+  - java -jar target/scala-2.12/DataGenerator-0.1.0.jar -g hypersphere -n 2000 -d 3 -noise 0.1 -a both -p "."
+  - java -jar target/scala-2.12/DataGenerator-0.1.0.jar -g hs -d 3 -noise 0.1 -a both -p "."
