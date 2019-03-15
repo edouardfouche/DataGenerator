@@ -84,8 +84,8 @@ Examples
 Plot all two and three dimensional dependencies with default configuration (can be useful to check each dependency) 
 
 ```
-java -jar target/scala-2.12/DataGenerator-0.1.0.jar -d 2 -a 'plot' --verbose
-java -jar target/scala-2.12/DataGenerator-0.1.0.jar -d 3 -a 'plot' --verbose
+java -jar target/scala-2.12/DataGenerator-0.1.0.jar -d 2 -a plot --verbose
+java -jar target/scala-2.12/DataGenerator-0.1.0.jar -d 3 -a plot --verbose
 ```
 
 Write and plot a noisy sphere (3 dimensions) at the indicated location.

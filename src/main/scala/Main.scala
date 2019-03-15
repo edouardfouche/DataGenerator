@@ -76,15 +76,15 @@ object Main extends LazyLogging {
     val filename = parseArgument("-o", "undefined", (_:String).toString, s"Output file name unspecified, default is the generator.id")
 
     def performaction(generator: DataGenerator, action: String): Unit = {
-      if(action == "write") {
+      if(action.contains("write")) {
         if(verbose) info(s"Writing $n points of ${generator.id} at $path")
         if(filename == "undefined") generator.save(n, path) else generator.save(n, path, filename)
       }
-      else if(action == "plot") {
+      else if(action.contains("plot")) {
         if(verbose) info(s"Ploting $n points of ${generator.id} at $path")
         if(filename == "undefined") generator.plot(n, path) else generator.plot(n, path, filename)
       }
-      else if(action == "both") {
+      else if(action.contains("both")) {
         if(verbose) info(s"Writing $n points of ${generator.id} at $path")
         if(filename == "undefined") generator.save(n, path) else generator.save(n, path, filename)
         if(verbose) info(s"Ploting $n points of ${generator.id} at $path")
