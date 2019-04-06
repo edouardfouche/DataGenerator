@@ -21,7 +21,7 @@ import breeze.stats.distributions.Uniform
 case class HypercubeGraph(nDim: Int, noise: Double, noisetype: String, discretize: Int) extends DataGenerator {
   val name = "hypercubegraph"
 
-  def getPoints(n: Int): Array[Array[Double]] = {
+  protected def getPoints(n: Int): Array[Array[Double]] = {
     (1 to n).toArray.map { _ =>
       val flag = scala.util.Random.nextInt(nDim)
       val data = (0 until nDim).toArray.map { y =>

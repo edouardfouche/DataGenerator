@@ -26,7 +26,7 @@ case class RandomSteps(nDim: Int, noise: Double, noisetype: String, discretize: 
   val param: Double = s
   val name = "randomsteps"
 
-  def getPoints(n: Int): Array[Array[Double]] = {
+  protected def getPoints(n: Int): Array[Array[Double]] = {
     (1 to n).toArray.map { _ =>
       val reset_seed = scala.util.Random.nextInt()
       var data = Array(Uniform(0, 1).draw())

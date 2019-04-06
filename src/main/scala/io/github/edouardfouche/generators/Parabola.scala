@@ -26,7 +26,7 @@ case class Parabola(nDim: Int, noise: Double, noisetype: String, discretize: Int
   val param: Double = s
   val name = "parabola"
 
-  def getPoints(n: Int): Array[Array[Double]] = {
+  protected def getPoints(n: Int): Array[Array[Double]] = {
     (1 to n).toArray.map { _ =>
       var data = Array(Uniform(-1, 1).draw())
       for (y <- 2 to nDim) {

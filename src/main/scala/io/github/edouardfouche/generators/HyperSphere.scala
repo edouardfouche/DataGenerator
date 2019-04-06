@@ -21,7 +21,7 @@ import breeze.stats.distributions.Gaussian
 case class HyperSphere(nDim: Int, noise: Double, noisetype: String, discretize: Int) extends DataGenerator {
   val name = "hypersphere"
 
-  def getPoints(n: Int): Array[Array[Double]] = {
+  protected def getPoints(n: Int): Array[Array[Double]] = {
     (1 to n).toArray.map { _ =>
       val init = (1 to nDim).toArray.map(y => Gaussian(0, 1).draw())
       val r = math.sqrt(init.map(math.pow(_, 2)).sum)

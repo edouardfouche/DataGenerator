@@ -25,7 +25,7 @@ case class DoubleLinear(nDim: Int, noise: Double, noisetype: String, discretize:
   }
   val name = "doublelinear"
 
-  def getPoints(n: Int): Array[Array[Double]] = {
+  protected def getPoints(n: Int): Array[Array[Double]] = {
     (1 to n).toArray.map { _ =>
       var data = Array(Uniform(0, 1).draw())
       (2 to nDim).toArray.foreach(_ => {

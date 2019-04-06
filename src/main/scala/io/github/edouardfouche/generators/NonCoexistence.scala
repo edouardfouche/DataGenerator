@@ -21,7 +21,7 @@ import breeze.stats.distributions.Uniform
 case class NonCoexistence(nDim: Int, noise: Double, noisetype: String, discretize: Int) extends DataGenerator {
   val name = "noncoexistence"
 
-  def getPoints(n: Int): Array[Array[Double]] = {
+  protected def getPoints(n: Int): Array[Array[Double]] = {
     (1 to n).toArray.map { _ =>
       val data = (1 to nDim).toArray.map(_ => Uniform(0, 1).draw())
       val flag = scala.util.Random.nextInt(nDim)

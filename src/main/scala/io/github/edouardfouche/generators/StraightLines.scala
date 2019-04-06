@@ -21,7 +21,7 @@ import breeze.stats.distributions.Uniform
 case class StraightLines(nDim: Int, noise: Double, noisetype: String, discretize: Int) extends DataGenerator {
   val name = "straightlines"
 
-  def getPoints(n: Int): Array[Array[Double]] = {
+  protected def getPoints(n: Int): Array[Array[Double]] = {
     (1 to n).toArray.map { _ =>
       val data = (0 until nDim).toArray.map(y => {
         if ((y % 2) != 1) Uniform(0, 1).draw()

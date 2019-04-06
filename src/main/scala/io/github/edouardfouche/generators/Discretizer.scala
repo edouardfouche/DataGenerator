@@ -18,7 +18,7 @@ package io.github.edouardfouche.generators
 
 object Discretizer {
   // expect rows
-  def discretize(data: Array[Array[Double]], nLevels: Int): Array[Array[Double]] = {
+  private[generators] def discretize(data: Array[Array[Double]], nLevels: Int): Array[Array[Double]] = {
     if(nLevels == 0) data
     else
     data.transpose.map(y => {
