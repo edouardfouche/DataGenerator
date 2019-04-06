@@ -9,9 +9,9 @@ import io.github.edouardfouche.generators._
   * Create Generator instance. See Readme for all generator classes.
   *
   * @nDim:Int No. of dimensions
-  * @noise:Double Noise level
+  * @noise:Double Noise level (see also Readme "Adding noise")
   * @noisetype:String "gaussian" or "uniform"
-  * @discretize:Int If values should be discretized (>0) or not (=0)
+  * @discretize:Int If values should be discretized (>0) or not (=0) (see also Readme "Discretization")
   *
   * Special Parameter: Certain dependencies take optional dependency specific parameters such as Sine (No of periods),
   * passed as an Option[Double]. If none is given it defaults.
