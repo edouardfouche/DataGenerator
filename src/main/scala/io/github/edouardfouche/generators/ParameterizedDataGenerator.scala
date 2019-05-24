@@ -27,5 +27,5 @@ trait ParameterizedDataGenerator extends DataGenerator {
 
   override lazy val id: String = s"$name-${shortname}_$param-$nDim-$noise-$noisetype-$discretize" // A String that says everything about this dependency
 
-  def getPoints(n: Int): Array[Array[Double]]
+  protected def getPoints(n: Int): Array[Array[Double]]
 }

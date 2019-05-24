@@ -45,26 +45,26 @@ trait DataGenerator {
   require(noisetype == "gaussian" | noisetype ==  "uniform", s"Noise type $noisetype is unknown. Currently supported: 'gaussian', 'uniform'")
   require(discretize >= 0, "Discretization level should be greater or equal 0 (0 means no discretization)")
 
-  def getPoints(n: Int): Array[Array[Double]]
+  protected def getPoints(n: Int): Array[Array[Double]]
 
   def generate(n: Int): Array[Array[Double]] = {
     Discretizer.discretize(postprocess(getPoints(n: Int), noise, noisetype), discretize)
   }
 
-  def postprocess(data: Array[Array[Double]], noise: Double, t: String = "gaussian"): Array[Array[Double]] = {
+  protected def postprocess(data: Array[Array[Double]], noise: Double, t: String = "gaussian"): Array[Array[Double]] = {
     t match {
       case "gaussian" => data.map(y => y.map(x => addGaussianNoise(x, noise)))
       case "uniform" => data.map(y => y.map(x => addUniformNoise(x, noise)))
     }
   }
 
-  def addGaussianNoise(x: Double, noise: Double): Double = x + Gaussian(0, noise).draw()
+  protected def addGaussianNoise(x: Double, noise: Double): Double = x + Gaussian(0, noise).draw()
 
-  def addUniformNoise(x: Double, noise: Double): Double = x + Uniform(-noise / 2.0, noise / 2.0).draw()
+  protected def addUniformNoise(x: Double, noise: Double): Double = x + Uniform(-noise / 2.0, noise / 2.0).draw()
 
-  def linearNormalization(x: Double): Double = (x + noise / 2.0) / (1 + 2 * (noise / 2))
+  protected def linearNormalization(x: Double): Double = (x + noise / 2.0) / (1 + 2 * (noise / 2))
 
-  def noiselessPowerNormalization(x: Double, pow: Double): Double = {
+  protected def noiselessPowerNormalization(x: Double, pow: Double): Double = {
     var t = Array(1.0)
     for (y <- 2 to nDim) {
       t = t ++ Array(math.pow(t.sum, pow))
@@ -73,7 +73,7 @@ trait DataGenerator {
     x / max
   }
 
-  def powerNormalization(x: Double, pow: Double): Double = {
+  protected def powerNormalization(x: Double, pow: Double): Double = {
     var t = Array(1.0)
     for (y <- 2 to nDim) {
       t = t ++ Array(math.pow(t.sum, pow))
@@ -130,7 +130,7 @@ trait DataGenerator {
       chart.clear()
       chart.dispose()
     } else {
-      throw new Error(s"Plotting is not supported with more than 3 dimensions. (${this.id})")
+      throw new Error(s"Plotting is only supported for 2 to 3 dimensions. (${this.id})")
     }
   }
 

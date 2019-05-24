@@ -26,7 +26,7 @@ case class Sine(nDim: Int, noise: Double, noisetype: String, discretize: Int)(pe
   val param: Double = s
   val name = "sine"
 
-  def getPoints(n: Int): Array[Array[Double]] = {
+  protected def getPoints(n: Int): Array[Array[Double]] = {
     (1 to n).toArray.map { _ =>
       var data = Array(Uniform(0, 1).draw())
       for (y <- 2 to nDim) {

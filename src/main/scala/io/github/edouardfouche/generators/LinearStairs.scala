@@ -26,7 +26,7 @@ case class LinearStairs(nDim: Int, noise: Double, noisetype: String, discretize:
   val param: Double = s
   val name = "linearstairs"
 
-  def getPoints(n: Int): Array[Array[Double]] = {
+  protected def getPoints(n: Int): Array[Array[Double]] = {
     (1 to n).toArray.map { _ =>
       var x = Uniform(0, 1).draw()
       val data = (1 to nDim).toArray.map(y => {
