@@ -8,9 +8,9 @@ A bunch of little data generators to simulate multivariate dependencies, written
 
 ## Quick Start
 
-The framework can either be used from the Commandline or inside Scala code.
+The framework can either be used from the an external command line or embedded into other Scala projects.
 
-## Commandline usage
+## Command line usage
 
 
 ### Build it and run it
@@ -95,7 +95,7 @@ You can also use the corresponding short name.
 java -jar target/scala-2.12/DataGenerator-0.1.0.jar -g hs -d 3 -noise 0.1 -a both -p /home/<user>/<whereyouwant>
 ```
 
-## Incode usage
+## In-code usage
 
 ### Import it
 
@@ -110,7 +110,7 @@ libraryDependencies += "io.github.edouardfouche" %% "datagenerator" % "0.1.0"
 ### Use it
 
 See [src/main/scala/io/github/edouardfouche/incode_usage/example.sc](src/main/scala/io/github/edouardfouche/incode_usage/example.sc) 
-for an example of incode usage. 
+for an example of in-code usage.
 
 Generators
 ----------
