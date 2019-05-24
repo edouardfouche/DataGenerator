@@ -234,13 +234,13 @@ Each data generator is normalized between 0 and 1, after generation, you can add
 
 The amount of noise is quantified by a 'noise level' > 0, in the case of a 'gaussian' noise, it is the standard deviation of the gaussian distribution used to generate the noise. In the case of 'uniform' noise, it is the amplitude of the noise. While we accept noise level > 1, this may not be useful as the data is normalized between 0 and 1 before noise, thus a noise level of 1 is already quite high. Note that a noise level of 0 means no noise. 
 
-**Gaussian noise [0, 0.1, 0.2, 0.4, 0.8, 1.0]**
+**Gaussian noise [0, 0.2, 0.4, 0.8, 1.0]**
 
-![alt-text-1](img/linear-l-2-0.0-gaussian-s.png) ![alt-text-1](img/linear-l-2-0.1-gaussian-s.png) ![alt-text-1](img/linear-l-2-0.2-gaussian-s.png) ![alt-text-1](img/linear-l-2-0.4-gaussian-s.png) ![alt-text-1](img/linear-l-2-0.8-gaussian-s.png) ![alt-text-1](img/linear-l-2-1.0-gaussian-s.png)
+![alt-text-1](img/linear-l-2-0.0-gaussian-s.png)  ![alt-text-1](img/linear-l-2-0.2-gaussian-s.png) ![alt-text-1](img/linear-l-2-0.4-gaussian-s.png) ![alt-text-1](img/linear-l-2-0.8-gaussian-s.png) ![alt-text-1](img/linear-l-2-1.0-gaussian-s.png)
 
-**Uniform noise [0, 0.1, 0.2, 0.4, 0.8, 1.0]**
+**Uniform noise [0, 0.2, 0.4, 0.8, 1.0]**
 
-![alt-text-1](img/linear-l-2-0.0-uniform-s.png) ![alt-text-1](img/linear-l-2-0.1-uniform-s.png) ![alt-text-1](img/linear-l-2-0.2-uniform-s.png) ![alt-text-1](img/linear-l-2-0.4-uniform-s.png) ![alt-text-1](img/linear-l-2-0.8-uniform-s.png) ![alt-text-1](img/linear-l-2-1.0-uniform-s.png)
+![alt-text-1](img/linear-l-2-0.0-uniform-s.png) ![alt-text-1](img/linear-l-2-0.2-uniform-s.png) ![alt-text-1](img/linear-l-2-0.4-uniform-s.png) ![alt-text-1](img/linear-l-2-0.8-uniform-s.png) ![alt-text-1](img/linear-l-2-1.0-uniform-s.png)
 
 As we can see, the gaussian noise is slightly more 'aggressive'.
 
