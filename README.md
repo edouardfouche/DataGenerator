@@ -8,10 +8,7 @@ A bunch of little data generators to simulate multivariate dependencies, written
 
 ## Quick Start
 
-The framework can either be used from the an external command line or embedded into other Scala projects.
-
-## Command line usage
-
+The framework has an external API (via command line), but you are welcome to import it into other Scala projects.
 
 ### Build it and run it
 
@@ -39,6 +36,8 @@ dimensionality as follows:
 ```
 java -jar target/scala-2.12/DataGenerator-<version>.jar <parameters>
 ```
+
+## External API (command line)
 
 Hereafter, we detail the parameters and give examples. Arguments are given in any order and are not case sensitive.
 Calling the jar typically outputs `.csv` and/or `.png` files in a specified path or the current repository.
@@ -76,7 +75,7 @@ Parameters
 Examples
 --------
 
-Plot all two and three dimensional dependencies with default configuration (can be useful to check each dependency) 
+Plot all two and three dimensional dependencies with default configuration (can be useful to check each dependency).
 
 ```
 java -jar target/scala-2.12/DataGenerator-0.1.0.jar -d 2 -a plot --verbose
@@ -95,9 +94,7 @@ You can also use the corresponding short name.
 java -jar target/scala-2.12/DataGenerator-0.1.0.jar -g hs -d 3 -noise 0.1 -a both -p /home/<user>/<whereyouwant>
 ```
 
-## In-code usage
-
-### Import it
+## Import it
 
 The data generator is available on the central repository (scala 2.11 and 2.12).
 
@@ -110,7 +107,7 @@ libraryDependencies += "io.github.edouardfouche" %% "datagenerator" % "0.1.0"
 ### Use it
 
 See [src/main/scala/io/github/edouardfouche/incode_usage/example.sc](src/main/scala/io/github/edouardfouche/incode_usage/example.sc) 
-for an example of in-code usage.
+for usage examples.
 
 Generators
 ----------
