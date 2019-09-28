@@ -6,9 +6,23 @@ DataGenerator
 
 A bunch of little data generators to simulate multivariate dependencies, written in scala.
 
+## Updates
+
+**September 27, 2019:** version 0.1.1; Fixed *Discretizer*, add *Categorizer*, *LinearCat* and *IndependentCat*
+
 ## Quick Start
 
 The framework has an external API (via command line), but you are welcome to import it into other Scala projects.
+
+### Importing DataGenerator
+
+**DataGenerator** is available on the central repository (scala 2.11 and 2.12).
+
+You can add it as a dependency in your own project, for example, via sbt:
+
+```
+libraryDependencies += "io.github.edouardfouche" %% "datagenerator" % "0.1.1"
+```
 
 ### Build it and run it
 

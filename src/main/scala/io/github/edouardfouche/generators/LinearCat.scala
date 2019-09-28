@@ -16,25 +16,20 @@
  */
 package io.github.edouardfouche.generators
 
-// use equi-width bins
-object Discretizer {
-  // expect rows
-  private[generators] def discretize(data: Array[Array[Double]], nLevels: Int): Array[Array[Double]] = {
-    if(nLevels == 0) data
-    else
-    data.transpose.map(y => {
-      val minVal = y.min
-      val maxVal = y.max
-      val amplitude = maxVal - minVal
+import breeze.stats.distributions.Uniform
 
-      val increment: Double = amplitude / nLevels + 0.001
+case class LinearCat(nDim: Int, noise: Double, noisetype: String, discretize: Int) extends DataGenerator {
+  val name = "linearcat"
+  override lazy val shortname = "lc"
 
-      //y.map(x => {
-      //  if (nLevels == 1) amplitude / 2.0
-      //  else if (math.abs(x % (amplitude / (nLevels - 1))) > math.abs(x % (-amplitude / (nLevels - 1)))) x - (x % (-amplitude / (nLevels - 1)))
-      //  else x - (x % (amplitude / (nLevels - 1)))
-      //})
-      y.map(x => ((x - minVal)/increment).toInt.toDouble)
-    }).transpose
+  def getPoints(n: Int): Array[Array[Double]] = {
+    (1 to n).toArray.map { _ =>
+      val x = Uniform(0, 1).draw()
+      (1 to nDim).toArray.map(_ => x)
+    }
+  }
+
+  override def generate(n: Int): Array[Array[Double]] = {
+    Categorizer.categorize(postprocess(getPoints(n: Int), noise, noisetype), discretize)
   }
 }
